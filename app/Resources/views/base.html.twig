@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block titulo %}Bienvenido!{% endblock %}</title>
+
+        <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+        <link href="{{ asset('css/modern-business.css') }}" rel="stylesheet">
+
+
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+
+
+ <!-- Navigation -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-primary bg-primary fixed-top">
+    <div class="container">
+      <a class="navbar-brand text-white" href="{{ path('homepage') }}">LEITER 3</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            {# <a class="nav-link" href="{{ path('nosotros') }}">Nosotros</a> #}
+          </li>
+           <li class="nav-item">
+            <a class="nav-link text-white" href="{{ path('registro')}}">Registro</a>
+          </li>
+           <li class="nav-item">
+           {% if app.user %}
+            <a class="nav-link text-white" href="{{ path('logout')}}">LogOut</a>
+           {% else %}
+           <a class="nav-link text-white" href="{{ path('login')}}">LogIn</a>
+           {% endif %}
+          </li>
+        
+          
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {% block contenido %}{% endblock %}
+
+
+  <!-- Footer -->
+  <footer class="py-5 bg-primary">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer> 
+
+
+       <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+       <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"     ></script>
+
+
+        {% block javascripts %}{% endblock %}
+    </body>
+ </html> 
